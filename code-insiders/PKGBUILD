@@ -1,0 +1,19 @@
+# Maintainer: Ricardo Franzen <rfranzen@gmail.com>
+
+pkgname=code-insiders
+pkgver=1.48.0
+pkgrel=1
+pkgdesc='Code editing redefined'
+arch=('x86_64')
+url='https://code.visualstudio.com/insiders/'
+license=('MIT')
+provides=('vscode-insiders' 'code-insiders')
+source=(
+  "https://az764295.vo.msecnd.net/insider/4c23fc22ced6d0c1f58215ce91ccd08d0c8a0006/code-insiders_1.48.0-1597141505_amd64.deb"
+)
+sha256sums=('42e8b94445eaed0e1bb8d76d0856b4a6bfa2f13df40a8b25d7a7693544910a46')
+
+
+package() {
+  tar -xf data.tar.xz --exclude=usr/share/{lintian,menu} -C "$pkgdir/"
+}
